@@ -1,0 +1,186 @@
+#include "PassengerCar.h"
+
+using std::cout; using std::string; using  std::endl;
+
+PassengerCar::PassengerCar()
+{
+	weight = 1500;
+	max_speed = 180;
+	avg_speed = 100;
+	price_moving = 100;
+	passengers_number = 4;
+	max_luggage = 50;
+	max_volume = 0.5;
+	body_type = "седан";
+	vehicle_segment = "економ";
+	seat_type = "тканина";
+}
+
+int PassengerCar::count_comfort()
+{
+	int counter = 1;
+	if (get_body_type() == "універсал")
+	{
+		counter += 1;
+	}
+	else if (get_body_type() == "седан")
+	{
+		counter += 1;
+	}
+	else if (get_body_type() == "купе")
+	{
+		counter += 0;
+	}
+	else if (get_body_type() == "кросовер")
+	{
+		counter += 2;
+	}
+	if (get_vehicle_segment() == "економ")
+	{
+		counter += 0;
+	}
+	else if (get_vehicle_segment() == "стандарт")
+	{
+		counter += 1;
+	}
+	else if (get_vehicle_segment() == "преміум")
+	{
+		counter += 2;
+	}
+	else if (get_vehicle_segment() == "люкс")
+	{
+		counter += 3;
+	}
+	if (get_seat_type() == "тканина")
+	{
+		counter -= 1;
+	}
+	else if (get_seat_type() == "комбінована")
+	{
+		counter += 0;
+	}
+	else if (get_seat_type() == "шкіра")
+	{
+		counter += 1;
+	}
+	return counter;
+}
+
+void PassengerCar::print(UserInterface* ui)
+{
+	ui->vehicle_weight_ans();
+	cout << get_weight() << endl;
+	ui->vehicle_max_speed_ans();
+	cout << get_max_speed() << endl;
+	ui->vehicle_avg_speed_ans();
+	cout << get_avg_speed() << endl;
+	ui->vehicle_price_moving_ans();
+	cout << get_price_moving() << endl;
+	ui->max_luggage_ans();
+	cout << get_max_luggage() << endl;
+	ui->volume_ans();
+	cout << get_max_volume() << endl;
+	ui->passengers_ans();
+	cout << get_passengers_number() << endl;
+	ui->body_type_ans();
+	cout << get_body_type() << endl;
+	ui->vehicle_segment_ans();
+	cout << get_vehicle_segment() << endl;
+	ui->seat_type_ans();
+	cout << get_seat_type() << endl;
+}
+
+string PassengerCar::vehicle_name()
+{
+	return passenger_car;
+}
+
+double PassengerCar::get_weight() const
+{
+	return weight;
+}
+void PassengerCar::set_weight(double weight)
+{
+	this->weight = weight;
+}
+
+double PassengerCar::get_max_speed() const
+{
+	return max_speed;
+}
+void PassengerCar::set_max_speed(const double max_speed)
+{
+	this->max_speed = max_speed;
+}
+
+double PassengerCar::get_avg_speed() const
+{
+	return avg_speed;
+}
+void PassengerCar::set_avg_speed(const double avg_speed)
+{
+	this->avg_speed = avg_speed;
+}
+
+double PassengerCar::get_price_moving() const
+{
+	return price_moving;
+}
+void PassengerCar::set_price_moving(const double price_moving)
+{
+	this->price_moving = price_moving;
+}
+
+double PassengerCar::get_max_luggage() const
+{
+	return max_luggage;
+}
+void PassengerCar::set_max_luggage(const double max_luggage)
+{
+	this->max_luggage = max_luggage;
+}
+
+double PassengerCar::get_max_volume() const
+{
+	return max_volume;
+}
+void PassengerCar::set_max_volume(const double max_volume)
+{
+	this->max_volume = max_volume;
+}
+
+string PassengerCar::get_body_type() const
+{
+	return body_type;
+}
+void PassengerCar::set_body_type(const string& body_type)
+{
+	this->body_type = body_type;
+}
+
+string PassengerCar::get_vehicle_segment() const
+{
+	return vehicle_segment;
+}
+void PassengerCar::set_vehicle_segment(const string& vehicle_segment)
+{
+	this->vehicle_segment = vehicle_segment;
+}
+
+int PassengerCar::get_passengers_number() const
+{
+	return passengers_number;
+}
+void PassengerCar::set_passengers_number(const int passengers_number)
+{
+	this->passengers_number = passengers_number;
+}
+
+string PassengerCar::get_seat_type() const
+{
+	return seat_type;
+}
+void PassengerCar::set_seat_type(const string& seat_type)
+{
+	this->seat_type = seat_type;
+}
